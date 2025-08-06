@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patent Results</title>
+  </head>
+  <body>
+    <h1>Search Results</h1>
+    <% if (patents.length === 0) { %>
+    <p>No results found.</p>
+    <% } else { %>
+    <ul>
+      <% patents.forEach(p => { %>
+      <li>
+        <strong><%= p.title %></strong><br />
+        Abstract: <%= p.abstract %><br />
+        Application #: <%= p.appNumber %><br />
+        Filing Date: <%= p.filingDate %><br />
+        Publication Date: <%= p.pubDate %><br />
+      </li>
+      <% }) %>
+    </ul>
+    <% } %>
+  </body>
+</html>

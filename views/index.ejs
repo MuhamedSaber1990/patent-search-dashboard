@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patent Search</title>
+  </head>
+  <body>
+    <h1>Search for Patents</h1>
+    <form action="/toauth" method="GET">
+      <button type="submit">Authrize</button>
+    </form>
+    <form action="/results" method="GET">
+      <select name="inputList">
+        <option value="keyword">Keyword (title)</option>
+        <option value="inventor">Inventor</option>
+        <option value="applicant">Applicant</option>
+        <option value="country">Country code</option>
+        <option value="ipc">IPC code</option>
+        <option value="year">Application year</option>
+      </select>
+      <input
+        type="text"
+        name="inputText"
+        placeholder="Enter search value"
+        required
+      />
+      <button type="submit">Search</button>
+    </form>
+  </body>
+</html>
