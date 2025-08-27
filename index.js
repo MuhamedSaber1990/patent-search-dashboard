@@ -62,10 +62,10 @@ app.get("/results", async (req, res) => {
     return res.status(401).send("Not authenticated. Go to /auth first.");
   }
 
-  const { inputList, inputText, page = 1 } = req.query; // default page = 1
+  const { inputList, inputText, page = 1 } = req.query; 
   const resultsPerPage = 10;
 
-  // Calculate range (EPO API expects "start-end" format, e.g. "1-10", "11-20")
+  // Calculate range
   const start = (page - 1) * resultsPerPage + 1;
   const end = page * resultsPerPage;
   const resultsRange = `${start}-${end}`;
