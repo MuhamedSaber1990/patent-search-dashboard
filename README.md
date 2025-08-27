@@ -39,7 +39,7 @@ The app uses **EJS templates** for rendering, supports pagination, and displays 
 
 ### 1. Clone the repository  
 ```bash
-git clone https://github.com/your-username/patent-search-dashboard.git
+git clone https://github.com/MuhamedSaber1990/patent-search-dashboard
 cd patent-search-dashboard
 ```
 
