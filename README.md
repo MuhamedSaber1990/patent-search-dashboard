@@ -29,7 +29,7 @@ The app uses **EJS templates** for rendering, supports pagination, and displays 
 │   ├── index.ejs        # Search form
 │   └── results.ejs      # Search results with pagination
 ├── .env                 # Environment variables (CLIENT_ID, CLIENT_SECRET)
-├── server.js            # Main Express app
+├── index.js            # Main Express app
 └── package.json
 ```
 
