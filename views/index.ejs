@@ -2,28 +2,37 @@
 <html>
   <head>
     <title>Patent Search</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Search for Patents</h1>
-    <form action="/toauth" method="GET">
-      <button type="submit">Authrize</button>
-    </form>
-    <form action="/results" method="GET">
-      <select name="inputList">
-        <option value="keyword">Keyword (title)</option>
-        <option value="inventor">Inventor</option>
-        <option value="applicant">Applicant</option>
-        <option value="country">Country code</option>
-        <option value="ipc">IPC code</option>
-        <option value="year">Application year</option>
-      </select>
-      <input
-        type="text"
-        name="inputText"
-        placeholder="Enter search value"
-        required
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div class="container">
+      <h1>Patent Search</h1>
+      <form action="/results" method="get">
+        <label for="inputList">Search by:</label>
+        <select name="inputList" id="inputList" required>
+          <option value="keyword">Keyword</option>
+          <option value="inventor">Inventor</option>
+          <option value="applicant">Applicant</option>
+          <option value="ipc">IPC Code</option>
+        </select>
+
+        <label for="inputText">Enter search text:</label>
+        <input
+          type="text"
+          name="inputText"
+          id="inputText"
+          placeholder="e.g. AI, John Smith, Google"
+          required
+        />
+
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="auth-link">
+        <p>
+          Not authenticated yet? <a href="/auth">Click here to authenticate</a>
+        </p>
+      </div>
+    </div>
   </body>
 </html>

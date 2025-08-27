@@ -2,23 +2,48 @@
 <html>
   <head>
     <title>Patent Results</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Search Results</h1>
-    <% if (patents.length === 0) { %>
-    <p>No results found.</p>
-    <% } else { %>
-    <ul>
-      <% patents.forEach(p => { %>
-      <li>
-        <strong><%= p.title %></strong><br />
-        Abstract: <%= p.abstract %><br />
-        Application #: <%= p.appNumber %><br />
-        Filing Date: <%= p.filingDate %><br />
-        Publication Date: <%= p.pubDate %><br />
-      </li>
-      <% }) %>
-    </ul>
-    <% } %>
+    <div class="container">
+      <h1>Patent Search Results</h1>
+
+      <% if (patents.length === 0) { %>
+      <p>No patents found.</p>
+      <% } else { %> <% patents.forEach(patent => { %>
+      <div class="patent">
+        <h2><%= patent.title %></h2>
+        <p class="meta">
+          Doc: <%= patent.country %><%= patent.docNumber %><%= patent.kind %>
+        </p>
+        <p><strong>Abstract:</strong> <%= patent.abstract %></p>
+        <p><strong>Applicants:</strong> <%= patent.applicants.join(", ") %></p>
+        <p><strong>Inventors:</strong> <%= patent.inventors.join(", ") %></p>
+      </div>
+      <% }) %> <% } %>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <% if (page > 1) { %>
+        <a
+          class="page-btn"
+          href="/results?inputList=<%= inputList %>&inputText=<%= inputText %>&page=<%= page - 1 %>"
+          >⬅ Prev</a
+        >
+        <% } %>
+
+        <span class="page-number">Page <%= page %></span>
+
+        <a
+          class="page-btn"
+          href="/results?inputList=<%= inputList %>&inputText=<%= inputText %>&page=<%= page + 1 %>"
+          >Next ➡</a
+        >
+      </div>
+
+      <div class="new-search">
+        <a href="/" class="new-search-btn">🔍 New Search</a>
+      </div>
+    </div>
   </body>
 </html>
